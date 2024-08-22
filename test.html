@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Video Element src Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+        <style>
+        </style>
+    </head>
+
+    <body>
+		<p>
+			<video id="player" width="400" height="300" controls="" style="background:black;" src="https://github.com/jash-git/indian-tire-advertising/raw/main/01.mp4?raw=true">
+			</video>
+			
+			<br>
+			
+			<script>
+					var player = document.getElementById('player')
+					var string1="https://github.com/jash-git/indian-tire-advertising/raw/main/"
+					var string2="?raw=true"
+					var playlist = [
+					  "01.mp4",
+					  "02.mp4",	  
+					]
+					var activeVideo = 0
+					var fileurl = string1 + playlist[activeVideo]+ string2
+					player.src = fileurl
+					player.addEventListener('ended', function(e) {
+					  // update the new active video index
+					  activeVideo = (++activeVideo) % playlist.length
+					  var string1="https://github.com/jash-git/indian-tire-advertising/raw/main/"
+					  var string2="?raw=true"
+					  var fileurl = string1 + playlist[activeVideo]+ string2
+					  player.src = fileurl
+					  player.play()
+					})
+			</script>
+			
+			<br>
+			
+		</p>
+    </body>
+</html>
